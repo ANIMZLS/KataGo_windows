@@ -1,0 +1,30 @@
+^D:\PROGRAM\KATAGO_WINDOWS\KATAGO\BUILD-CUDA\CMAKEFILES\47823E2A100D8F50928F3B6460F4F0EE\GITINFOUPDATED.H.RULE
+setlocal
+cd D:\program\katago_windows\KataGo\cpp
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E copy D:/program/katago_windows/KataGo/cpp/program/gitinfotemplate.h D:/program/katago_windows/KataGo/build-cuda/program/gitinfoupdated.h
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Git\cmd\git.exe" describe --match=DummyTagNotExisting --always --abbrev=40 --dirty >> D:/program/katago_windows/KataGo/build-cuda/program/gitinfoupdated.h
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/program/katago_windows/KataGo/build-cuda/program/gitinfoupdated.h D:/program/katago_windows/KataGo/build-cuda/program/gitinfo.h
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E remove D:/program/katago_windows/KataGo/build-cuda/program/gitinfoupdated.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\PROGRAM\KATAGO_WINDOWS\KATAGO\CPP\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/program/katago_windows/KataGo/cpp -BD:/program/katago_windows/KataGo/build-cuda --check-stamp-file D:/program/katago_windows/KataGo/build-cuda/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

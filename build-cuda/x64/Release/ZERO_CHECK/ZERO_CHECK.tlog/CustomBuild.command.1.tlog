@@ -1,0 +1,10 @@
+^D:\PROGRAM\KATAGO_WINDOWS\KATAGO\BUILD-CUDA\CMAKEFILES\02E061674A1703E15116C89D0D0BB5A4\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/program/katago_windows/KataGo/cpp -BD:/program/katago_windows/KataGo/build-cuda --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/program/katago_windows/KataGo/build-cuda/katago.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
